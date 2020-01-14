@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  gollum:
+    image: suttang/gollum
+    container_name: gollum
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ${PWD}/config.rb:/etc/gollum/config.rb
+      - ${PWD}/wikidata:/root/wikidata
+    command:
+      - "--port=8080"
+      - "--config=/etc/gollum/config.rb"
